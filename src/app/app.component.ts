@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { AboutPage } from '../pages/about/about';
+import { MapPage } from '../pages/map/map';
+
 export interface MenuItem {
   title: string;
   component: any;
@@ -30,6 +32,7 @@ export class MyApp {
     });
     this.appMenuItems = [
       { title: 'Home', component: HomePage, icon: 'home' },
+      {title: 'Map', component: MapPage, icon: 'map'},
       {title: 'Brokers', component: WelcomePage, icon: 'people'},
       {title: 'Favorites', component: WelcomePage, icon: 'star'},
       { title: 'Get Preapproved', component: WelcomePage, icon: 'checkmark-circle' },
