@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free';
+import { User, CommonDataProvider } from '../../providers/common-data/common-data';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController, private adMobFree: AdMobFree) {
+  public user:User = new User();
+  constructor(public navCtrl: NavController, private adMobFree: AdMobFree, private common: CommonDataProvider){
+    this.user = this.common.getUser();
+    console.log('user', this.user);
     this.showBannerAd();
   }
 

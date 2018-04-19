@@ -11,15 +11,32 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-label>Email Address</ion-label>
-    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-  </ion-item>
+  <div [hidden]="!this.error" padding-bottom>
+    <small class="text-danger">
+      {{this.error}}
+    </small>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Email Address</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label floating>Banner Key</ion-label>
+      <ion-input type="text" [(ngModel)]="user.bannerKey"></ion-input>
+    </ion-item>
 
-  <button ion-button  (click)="register()">Register</button>
+    <ion-item>
+      <ion-label floating>Interstitial Key</ion-label>
+      <ion-input type="text" [(ngModel)]="user.interstitialKey"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="login()">Back</button>
+  <button ion-button (click)="register()">Register</button>
 </ion-content>
