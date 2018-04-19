@@ -11,6 +11,8 @@ import { AboutPage } from '../pages/about/about';
 import { MapPage } from '../pages/map/map';
 import { Device } from '@ionic-native/device';
 import { Diagnostic } from '@ionic-native/diagnostic';
+import { AdMobFree } from '@ionic-native/admob-free';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,7 +39,8 @@ import { Diagnostic } from '@ionic-native/diagnostic';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
     Device,
-    Diagnostic
+    Diagnostic,
+    AdMobFree
   ]
 })
 export class AppModule {}

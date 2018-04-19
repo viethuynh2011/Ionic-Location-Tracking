@@ -17,7 +17,7 @@ export interface MenuItem {
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = MapPage;
+  rootPage: any = HomePage;
   @ViewChild(Nav) nav: Nav;
   appMenuItems: Array<MenuItem>;
   accountMenuItems: Array<MenuItem>;
