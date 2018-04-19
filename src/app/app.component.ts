@@ -15,12 +15,12 @@ export interface MenuItem {
   icon: string;
 }
 const config = {
-  apiKey: "AIzaSyDDmGApf_jji3X8B-2FXsqxlOynvAVAM4A",
-  authDomain: "locationtracking-92cca.firebaseapp.com",
-  databaseURL: "https://locationtracking-92cca.firebaseio.com",
-  projectId: "locationtracking-92cca",
-  storageBucket: "locationtracking-92cca.appspot.com",
-  messagingSenderId: "391886369785"
+  apiKey: "xxxx",
+  authDomain: "xxxx",
+  databaseURL: "xxxxxxx",
+  projectId: "xxxxxxxxxx",
+  storageBucket: "xxxxxxxxxxxx",
+  messagingSenderId: "xxxxxxxxxxx"
 };
 @Component({
   templateUrl: 'app.html'
