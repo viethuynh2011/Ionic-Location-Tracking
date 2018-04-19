@@ -17,7 +17,7 @@ export class HomePage {
   async showBannerAd() {
     try {
       const bannerConfig: AdMobFreeBannerConfig = {
-        id: 'ca-app-pub-5345947962552664/6301624327',
+        id: this.user.bannerKey,
         isTesting: true,
         autoShow: true
       }
@@ -34,7 +34,7 @@ export class HomePage {
   async showInterstitialAd() {
     try {
       const interstitialConfig: AdMobFreeInterstitialConfig = {
-        id: 'ca-app-pub-5345947962552664/8667346487',
+        id: this.user.interstitialKey,
         isTesting: true,
         autoShow: true
       }

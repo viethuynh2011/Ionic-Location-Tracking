@@ -15,12 +15,12 @@ export interface MenuItem {
   icon: string;
 }
 const config = {
-  apiKey: "xxxx",
-  authDomain: "xxxx",
-  databaseURL: "xxxxxxx",
-  projectId: "xxxxxxxxxx",
-  storageBucket: "xxxxxxxxxxxx",
-  messagingSenderId: "xxxxxxxxxxx"
+  apiKey: "xxx",
+  authDomain: "xxx",
+  databaseURL: "xxx",
+  projectId: "ccc",
+  storageBucket: "cc",
+  messagingSenderId: "cc"
 };
 @Component({
   templateUrl: 'app.html'
