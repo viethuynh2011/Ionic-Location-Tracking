@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig, AdMobFreeRewardVideoConfig } from '@ionic-native/admob-free';
 /*
   Generated class for the CommonDataProvider provider.
 
@@ -12,6 +12,9 @@ export class User {
   password: string;
   bannerKey: string;
   interstitialKey: string;
+  rewardVideoKey: string;
+  roll: string
+  isTesting: boolean
 }
 
 export const snapshotToArray = snapshot => {
@@ -29,7 +32,8 @@ export const snapshotToArray = snapshot => {
 @Injectable()
 export class CommonDataProvider {
   public user:User = new User();
-  constructor(public http: HttpClient) {
+
+  constructor(public http: HttpClient, private adMobFree: AdMobFree) {
     console.log('Hello CommonDataProvider Provider');
   }
 
@@ -39,6 +43,58 @@ export class CommonDataProvider {
 
   setUser(user: User) {
     this.user = user;
+  }
+
+  async showBannerAd() {
+    try {
+      const bannerConfig: AdMobFreeBannerConfig = {
+        id: this.user.bannerKey,
+        isTesting: this.user.isTesting,
+        autoShow: true
+      }
+      this.adMobFree.banner.config(bannerConfig);
+      const result = await this.adMobFree.banner.prepare();
+      console.log(result);
+    }
+    catch (e) {
+      console.error(e);
+    }
+  }
+
+  async showInterstitialAd() {
+    try {
+      const interstitialConfig: AdMobFreeInterstitialConfig = {
+        id: this.user.interstitialKey,
+        isTesting: this.user.isTesting,
+        autoShow: true
+      }
+
+      this.adMobFree.interstitial.config(interstitialConfig);
+
+      const result = await this.adMobFree.interstitial.prepare();
+      console.log(result);
+    }
+    catch (e) {
+      console.error(e)
+    }
+  }
+
+  async showVideoRewardsAd() {
+    try {
+      const videoRewardsConfig: AdMobFreeRewardVideoConfig = {
+        id: this.user.rewardVideoKey,
+        isTesting: this.user.isTesting,
+        autoShow: true
+      }
+
+      this.adMobFree.rewardVideo.config(videoRewardsConfig);
+
+      const result = await this.adMobFree.rewardVideo.prepare();
+      console.log(result);
+    }
+    catch (e) {
+      console.error(e);
+    }
   }
 
 }

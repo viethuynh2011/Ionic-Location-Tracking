@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,10 +14,13 @@ import { AboutPage } from '../pages/about/about';
 import { MapPage } from '../pages/map/map';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { RssPage } from '../pages/rss/rss';
+import { FeedListPage } from '../pages/feed-list/feed-list';
 import { Device } from '@ionic-native/device';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { AdMobFree } from '@ionic-native/admob-free';
 import { CommonDataProvider } from '../providers/common-data/common-data';
+import { FeedProvider } from '../providers/feed/feed';
 @NgModule({
   declarations: [
     MyApp,
@@ -25,7 +29,9 @@ import { CommonDataProvider } from '../providers/common-data/common-data';
     AboutPage,
     MapPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    RssPage,
+    FeedListPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,9 @@ import { CommonDataProvider } from '../providers/common-data/common-data';
     AboutPage,
     MapPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    RssPage,
+    FeedListPage
   ],
   providers: [
     StatusBar,
@@ -51,7 +59,9 @@ import { CommonDataProvider } from '../providers/common-data/common-data';
     Device,
     Diagnostic,
     AdMobFree,
-    CommonDataProvider
+    CommonDataProvider,
+    InAppBrowser,
+    FeedProvider
   ],
 })
 export class AppModule {}

@@ -7,6 +7,11 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>Register</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="goBack()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -18,7 +23,7 @@
   </div>
   <ion-list>
     <ion-item>
-      <ion-label floating>Email Address</ion-label>
+      <ion-label floating>Email</ion-label>
       <ion-input type="text" [(ngModel)]="user.email"></ion-input>
     </ion-item>
 
@@ -33,10 +38,14 @@
     </ion-item>
 
     <ion-item>
+      <ion-label floating>Reward Video</ion-label>
+      <ion-input type="text" [(ngModel)]="user.rewardVideoKey"></ion-input>
+    </ion-item>
+
+    <ion-item>
       <ion-label floating>Password</ion-label>
       <ion-input type="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button (click)="login()">Back</button>
-  <button ion-button (click)="register()">Register</button>
+  <button ion-button (click)="register()" full>Register</button>
 </ion-content>

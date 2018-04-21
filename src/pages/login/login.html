@@ -18,7 +18,7 @@
   </div>
   <ion-list>
     <ion-item>
-      <ion-label floating>Email Address</ion-label>
+      <ion-label floating>Email</ion-label>
       <ion-input type="text" [(ngModel)]="user.email"></ion-input>
     </ion-item>
 
@@ -27,6 +27,6 @@
       <ion-input type="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button (click)="login()">Login</button>
-  <button ion-button (click)="register()">Register</button>
+  <button ion-button (click)="login()" full>Login</button>
+  <button ion-button color="secondary" (click)="register()" full>Register</button>
 </ion-content>

@@ -8,6 +8,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { AboutPage } from '../pages/about/about';
 import { MapPage } from '../pages/map/map';
 import { LoginPage } from '../pages/login/login';
+import { RssPage } from '../pages/rss/rss';
 import * as firebase from 'firebase';
 export interface MenuItem {
   title: string;
@@ -15,12 +16,7 @@ export interface MenuItem {
   icon: string;
 }
 const config = {
-  apiKey: "xxx",
-  authDomain: "xxx",
-  databaseURL: "xxx",
-  projectId: "ccc",
-  storageBucket: "cc",
-  messagingSenderId: "cc"
+  
 };
 @Component({
   templateUrl: 'app.html'
@@ -42,7 +38,7 @@ export class MyApp {
     this.appMenuItems = [
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'Map', component: MapPage, icon: 'map'},
-      { title: 'Brokers', component: WelcomePage, icon: 'people'},
+      { title: 'News', component: RssPage, icon: 'paper'},
       { title: 'Favorites', component: WelcomePage, icon: 'star'},
       { title: 'Get Preapproved', component: WelcomePage, icon: 'checkmark-circle' },
     ];
