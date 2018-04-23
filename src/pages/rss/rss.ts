@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+// import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { FeedProvider, Feed } from '../../providers/feed/feed';
 import { FeedListPage } from '../../pages/feed-list/feed-list';
 /**

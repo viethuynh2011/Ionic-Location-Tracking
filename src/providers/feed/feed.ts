@@ -50,15 +50,12 @@ export class FeedProvider {
   }
 
   addFeed(newFeed: Feed) {
-      this.ref.on('value', resp => {
         let newData = this.ref.push();
         newData.set({
           uuid: this.device.uuid,
           title: newFeed.title,
           url: newFeed.url
         });
-        // localStorage.setItem('mykey', newData.key);
-    });
   }
 
   getArticlesForUrl(feedUrl: string) {

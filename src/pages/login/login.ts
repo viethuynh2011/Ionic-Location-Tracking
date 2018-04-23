@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'Firebase';
 import { HomePage } from '../../pages/home/home';
 import { RegisterPage } from '../../pages/register/register';
-import { User, snapshotToArray, CommonDataProvider } from '../../providers/common-data/common-data';
+import { User, AccountProvider } from '../../providers/account/account';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -14,7 +14,8 @@ export class LoginPage {
   error = null;
   users = [];
   user:User;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private common: CommonDataProvider){
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  private account: AccountProvider){
     this.user = new User();
     this.user.email = 'demo';
     this.user.password = '123456';
@@ -30,26 +31,12 @@ export class LoginPage {
       this.error = 'Password not null. Please check again !';
       return;
     }
-     this.ref.on('value', resp => {
-      this.users = [];
-      if  (resp !== null) {
-        this.users = snapshotToArray(resp);
-        let check = this.users.find((x) => x.email == this.user.email && x.password === this.user.password);
-        if (check === undefined) {
-          this.error = 'Email or password is failse. Please check again !';
-          return;
-        } else if (check.roll !== 'member') {
-          this.error = 'You are not member!';
-          return;
-        } else {
-          this.common.setUser(check);
-          this.navCtrl.setRoot(HomePage);
-        }
-      } else {
-        this.error = 'Email or password is failse. Please check again !';
-        return;
-      }
-  });
+    if (this.account.login(this.user)) {
+      this.navCtrl.setRoot(HomePage);
+    } else {
+      this.error = 'Email or password is failse. Please check again !';
+      return;
+    }
 }
 
   async register() {

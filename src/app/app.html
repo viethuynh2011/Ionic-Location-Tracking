@@ -2,11 +2,11 @@
 
     <ion-content>
   
-      <img src="assets/imgs/dreamhouse-logo.svg" class="menu-logo"/>
+      <img src="assets/imgs/growth.svg" class="menu-logo"/>
   
       <ion-list>
         <ion-list-header>
-          Shop
+          {{this.common.user.email}}
         </ion-list-header>
         <button menuClose ion-item *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)">
           <ion-icon item-left [name]="menuItem.icon"></ion-icon>

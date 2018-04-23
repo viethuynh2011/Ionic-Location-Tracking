@@ -8,8 +8,6 @@ import { CommonDataProvider } from '../../providers/common-data/common-data';
 export class HomePage {
   constructor(public navCtrl: NavController, private common: CommonDataProvider){
     this.common.showBannerAd();
-  }
-  async showInterstitialAd() {
-    this.common.showInterstitialAd();
+    // this.common.startTheIterations();
   }
 }

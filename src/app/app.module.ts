@@ -21,6 +21,7 @@ import { Diagnostic } from '@ionic-native/diagnostic';
 import { AdMobFree } from '@ionic-native/admob-free';
 import { CommonDataProvider } from '../providers/common-data/common-data';
 import { FeedProvider } from '../providers/feed/feed';
+import { AccountProvider } from '../providers/account/account';
 @NgModule({
   declarations: [
     MyApp,
@@ -61,7 +62,8 @@ import { FeedProvider } from '../providers/feed/feed';
     AdMobFree,
     CommonDataProvider,
     InAppBrowser,
-    FeedProvider
+    FeedProvider,
+    AccountProvider
   ],
 })
 export class AppModule {}

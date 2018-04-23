@@ -3,6 +3,7 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { FeedProvider, FeedItem, Feed } from '../../providers/feed/feed';
 import { RssPage } from '../../pages/rss/rss';
+import { CommonDataProvider } from '../../providers/common-data/common-data';
 @IonicPage({
   name: 'FeedListPage'
 })
@@ -15,11 +16,16 @@ export class FeedListPage {
   selectedFeed: Feed;
   loading: Boolean;
  
-  constructor(private navCtrl: NavController, private iab: InAppBrowser, private feedProvider: FeedProvider, private navParams: NavParams) {
-    this.selectedFeed = navParams.get('selectedFeed');
+  constructor(private navCtrl: NavController, private iab: InAppBrowser,
+    private feedProvider: FeedProvider,
+    private navParams: NavParams,
+    private common: CommonDataProvider
+  ) {
+    this.selectedFeed = this.navParams.get('selectedFeed');
   }
- 
+
   public openArticle(url: string) {
+    this.common.showInterstitialAd();
     this.iab.create(url, '_blank');
     // window.open(url, '_blank');
   }
